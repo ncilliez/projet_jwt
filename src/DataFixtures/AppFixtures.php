@@ -25,6 +25,13 @@ class AppFixtures extends Fixture
         $user->setRoles(["ROLE_USER"]);
         $user->setPassword($this->userPasswordHasher->hashPassword($user, "password"));
         $manager->persist($user);
+
+        // Création d'un user "normal"
+        $user = new User();
+        $user->setEmail("nico@bookapi.com");
+        $user->setRoles(["ROLE_USER"]);
+        $user->setPassword($this->userPasswordHasher->hashPassword($user, "password"));
+        $manager->persist($user);
         
         // Création d'un user admin
         $userAdmin = new User();
